@@ -1,0 +1,157 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.form {
+  @include flex_column;
+  gap: fn.rem(24);
+
+  input {
+    border: 1px solid lightgray;
+    border-radius: fn.rem(4);
+    font-size: fn.rem(14);
+    color: #000000 !important;
+
+    &::placeholder {
+      color: lightgray;
+      font-size: fn.rem(14);
+    }
+  }
+
+  select {
+    color: colors.$deep-blue !important;
+    font-size: fn.rem(14) !important;
+    border-radius: fn.rem(4);
+    color: lightgray;
+  }
+
+  input[type='checkbox'] {
+    margin-top: 0;
+  }
+
+  label {
+    color: colors.$dark-gray;
+    font-weight: 600;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+
+    @include breakpoint-up('lg') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .secondRow {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: fn.rem(28);
+
+    .password {
+      input {
+        border-right: none;
+      }
+      .showPassword {
+        border-left: none !important;
+        background-color: transparent !important;
+        cursor: pointer;
+      }
+    }
+
+    .checkboxLabel {
+      font-size: fn.rem(12);
+      // vertical-align: baseline;
+      @include breakpoint-up('sm') {
+        font-size: fn.rem(14);
+      }
+    }
+  }
+
+  .forgotpassword {
+    color: colors.$blue;
+    font-size: fn.rem(12);
+    font-weight: 600;
+  }
+
+  .btnContainer {
+    button {
+      width: 100%;
+      // background-image: url('https://stackdiary.com/wp-content/uploads/2022/10/noise_img.png');
+      // background-size: auto;
+      background-color: colors.$blue;
+      color: colors.$light;
+      border-radius: fn.rem(4);
+      font-size: fn.rem(14);
+    }
+    .noiseImage {
+      background-position: 0px 0px;
+    }
+
+    /* apply this to the container you want to animate */
+    .gradient {
+      background: linear-gradient(-45deg, #ffeb3b, #74efff, #9c27b0);
+      background-size: 400% 400%;
+      animation: gradient-bg 20s ease infinite;
+      // transition: all 1s ease;
+    }
+  }
+
+  .caption {
+    .footerLink {
+      font-size: fn.rem(12);
+      font-weight: 600;
+      text-align: center;
+      .signupLink {
+        @include breakpoint-up('lg') {
+          display: inline;
+        }
+        color: colors.$blue;
+      }
+    }
+  }
+}
+
+.employerForm {
+  position: relative;
+  background-color: colors.$base-bg;
+  border-radius: fn.rem(8);
+  box-shadow: 0 fn.rem(5) fn.rem(30) colors.$border-grey;
+  @include breakpoint-up('lg') {
+    width: fn.rem(432);
+  }
+  height: fit-content;
+  padding-inline: fn.rem(29);
+  padding-block: fn.rem(43);
+
+  input {
+    height: fn.rem(56);
+    width: 100%;
+  }
+
+  &::after {
+    position: absolute;
+    content: url(../../../../assets/images/repeatGrid.webp);
+    bottom: fn.rem(20);
+    right: fn.rem(10);
+    @include breakpoint-up('lg') {
+      bottom: fn.rem(-70);
+      right: fn.rem(-50);
+    }
+    z-index: -1;
+  }
+}
+
+@keyframes gradient-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

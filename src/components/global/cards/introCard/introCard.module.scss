@@ -1,0 +1,97 @@
+@use '@/scss/global/colors' as colors;
+@use '@/scss/utils/functions' as fn;
+@import '@/scss/utils/breakpoints';
+@import '@/scss/utils/mixins';
+
+.introCard {
+  max-width: fn.rem(1240.34);
+  background-color: colors.$base-bg;
+  padding: fn.rem(16);
+  border: 1px solid #c4cdd5;
+  border-radius: fn.rem(8);
+  gap: fn.rem(50);
+
+  @include flex_column-reverse;
+  @include breakpoint-up('lg') {
+    @include flex;
+    @include flex_align;
+    padding: fn.rem(35);
+  }
+
+  .imgContainer {
+    @include breakpoint-up('sm') {
+      flex: 1;
+      max-width: fn.rem(290);
+      margin: 0 auto;
+      img {
+        object-fit: contain;
+      }
+    }
+    @include breakpoint-up('md') {
+      min-width: fn.rem(290);
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .introCardText {
+    flex: 2;
+    .title {
+      margin-bottom: fn.rem(19);
+      font-weight: 700;
+    }
+    .desc {
+      // font-size: fn.rem(14);
+      color: colors.$dark-gray;
+    }
+    .timeDate {
+      @include flex;
+      // font-size: fn.rem(14);
+      gap: fn.rem(32);
+      margin-block: fn.rem(35);
+      font-weight: 700;
+      @include breakpoint-up('sm') {
+        @include flex;
+        @include flex_align;
+      }
+
+      .time,
+      .date {
+        @include flex;
+        @include flex_align;
+      }
+
+      .icon {
+        margin-inline-end: fn.rem(8);
+        img {
+          //   border: 1px solid red;
+          width: fn.rem(20);
+          height: fn.rem(20);
+        }
+      }
+    }
+    .priceButton {
+      @include flex_column;
+      justify-content: space-between;
+      gap: fn.rem(32);
+
+      @include breakpoint-up('sm') {
+        @include flex;
+        @include flex_align;
+      }
+
+      .price {
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+
+      .enrollBtn {
+        width: fn.rem(160);
+        background-color: colors.$blue;
+        color: colors.$light;
+        border-radius: fn.rem(8);
+      }
+    }
+  }
+}
