@@ -51,7 +51,7 @@ const Hero = ({ content }) => {
     <header
       // onMouseLeave={handleMouseLeave}
       // onMouseMove={handleMouseMove}
-      className={`${style.hero}  pt-24 pt-lg-40`}
+      className={`${style.hero}  pt-lg-40`}
     >
       <Container paddingBlock={0}>
         <Gsap animationFuncion={() => genericAnimation(`hero`)}>
@@ -74,11 +74,16 @@ const Hero = ({ content }) => {
             <div
               style={{
                 transform: `perspective(1000px) rotateX(${transform.translateX}deg) rotateY(${transform.translateY}deg) translateZ(0px)`,
-                transition: `all .1s ease-out`,
               }}
-              className={style.heroImg}
+              className={`${style.heroImg} d-none d-md-block`}
             >
-              <img alt='logo' loading='lazy' data-sizes='auto' src={``} className='lazyload' />
+              <img
+                alt='logo'
+                loading='lazy'
+                data-sizes='auto'
+                src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/home-hero-img.png`}
+                className='lazyload'
+              />
             </div>
           </section>
         </Gsap>
