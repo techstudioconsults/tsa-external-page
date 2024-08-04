@@ -78,13 +78,7 @@ const Hero = ({ content }) => {
               }}
               className={style.heroImg}
             >
-              <img
-                alt='logo'
-                loading='lazy'
-                data-sizes='auto'
-                src={`https://techstudio.nyc3.cdn.digitaloceanspaces.com/External-page-assets/Images/home-hero-img.png`}
-                className='lazyload'
-              />
+              <img alt='logo' loading='lazy' data-sizes='auto' src={``} className='lazyload' />
             </div>
           </section>
         </Gsap>
